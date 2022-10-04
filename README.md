@@ -1,1 +1,5 @@
 # nic_link
+Authors: Eric Uerling, Ethan Fuentes
+Language used: Python 3
+Repository includes code to run a server and code for each user. The user code is the same except for port read/write numbers. To run, load the server code on a pi, then user1 on a pi, user2 on a pi, and so on. The server code should be run first, followed by any or all of the user code in any order. To wire the pis and nics, connect the server pi to a nic via ribbon cable. Connect 4 more pis to nics with ribbon cables. Then, wire the pi you intend to be user 1's nic (it does not matter which) to port 1 on the server's nic. This should be done with the optical cables, from send on user 1's port 1 to receive on the server's port 1, and vice versa. Then do this for all other user's nics, port 2 to port 2, and so on. Bits are first sent by the server to ascertain which users are connected. The bits are signaled using the read and write functions built into pigpio.
+For each frame traversing the network, bits are sent with a header, an eight bit integer for the message's length, and a username (1, 2, 3, or 4 followed by a space). 
